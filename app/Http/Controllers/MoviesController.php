@@ -65,7 +65,7 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('show');
     }
 
     /**
