@@ -34,27 +34,31 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="mt-12">
-                    <a href="https://youtube.com/watch?v={{ $movieDetails['videos']['results'][0]['id'] }}" class="flex items-center bg-red-500 text-gray-900 rounded font-semibold px-5
-                    py-4 hover:bg-red-600 transition ease-in-out duration-150">
-                        <svg class="w-6 fill-current" version="1.0" xmlns="http://www.w3.org/2000/svg"
-                        width="20" height="20" viewBox="0 0 128.000000 128.000000"
-                        preserveAspectRatio="xMidYMid meet">
-                        <metadata>
-                        Created by potrace 1.16, written by Peter Selinger 2001-2019
-                        </metadata>
-                        <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
-                        fill="#000000" stroke="none">
-                        <path d="M505 1264 c-244 -52 -438 -249 -489 -497 -20 -96 -20 -158 0 -254 52
-                        -252 246 -446 496 -497 97 -20 159 -20 256 0 250 51 444 245 496 497 20 96 20
-                        158 0 255 -71 347 -411 569 -759 496z m193 -401 c239 -162 267 -184 270 -219
-                        2 -21 -4 -36 -20 -51 -26 -23 -360 -254 -395 -272 -26 -13 -67 0 -77 25 -9 23
-                        -9 565 0 588 6 16 35 34 57 35 4 1 78 -47 165 -106z"/>
-                        </g>
-                        </svg>
-                        <span class="ml-2">Play Trailer</span>
-                    </a>
-                </div>
+
+                @if(count($movieDetails['videos']['results']) > 0)
+                    <div class="mt-12">
+                        <a href="https://youtube.com/watch?v={{ $movieDetails['videos']['results'][0]['key'] }}"
+                        class="flex inline-flex items-center bg-red-500 text-gray-900 rounded font-semibold px-5
+                        py-4 hover:bg-red-600 transition ease-in-out duration-150">
+                            <svg class="w-6 fill-current" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                            width="20" height="20" viewBox="0 0 128.000000 128.000000"
+                            preserveAspectRatio="xMidYMid meet">
+                            <metadata>
+                            Created by potrace 1.16, written by Peter Selinger 2001-2019
+                            </metadata>
+                            <g transform="translate(0.000000,128.000000) scale(0.100000,-0.100000)"
+                            fill="#000000" stroke="none">
+                            <path d="M505 1264 c-244 -52 -438 -249 -489 -497 -20 -96 -20 -158 0 -254 52
+                            -252 246 -446 496 -497 97 -20 159 -20 256 0 250 51 444 245 496 497 20 96 20
+                            158 0 255 -71 347 -411 569 -759 496z m193 -401 c239 -162 267 -184 270 -219
+                            2 -21 -4 -36 -20 -51 -26 -23 -360 -254 -395 -272 -26 -13 -67 0 -77 25 -9 23
+                            -9 565 0 588 6 16 35 34 57 35 4 1 78 -47 165 -106z"/>
+                            </g>
+                            </svg>
+                            <span class="ml-2">Play Trailer</span>
+                        </a>
+                    </div>
+                @endif
             </div>
         </div>
     </div> <!-- end movie-info -->
@@ -63,61 +67,21 @@
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Cast</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Actor Name</a>
-                        <div class="text-gray-400 text-sm">
-                            Actor Role in the movie
+                @foreach ($movieDetails['credits']['cast'] as $castMember)
+                    @if ($loop->index < 5)
+                        <div class="mt-8">
+                            <a href="#">
+                                <img src="{{ 'https://image.tmdb.org/t/p/w300'.$castMember['profile_path'] }}" alt="actor1" class="hover:opacity-75 transition ease-in-out duration-150">
+                            </a>
+                            <div class="mt-2">
+                                <a href="#" class="text-lg mt-2 hover:text-gray:300">{{ $castMember['name'] }}</a>
+                                <div class="text-gray-400 text-sm">
+                                    {{ $castMember['character'] }}
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Actor Name</a>
-                        <div class="text-gray-400 text-sm">
-                            Actor Role in the movie
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Actor Name</a>
-                        <div class="text-gray-400 text-sm">
-                            Actor Role in the movie
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Actor Name</a>
-                        <div class="text-gray-400 text-sm">
-                            Actor Role in the movie
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                    <div class="mt-2">
-                        <a href="#" class="text-lg mt-2 hover:text-gray:300">Actor Name</a>
-                        <div class="text-gray-400 text-sm">
-                            Actor Role in the movie
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
         </div>
     </div> <!-- end movie-cast -->
@@ -126,36 +90,15 @@
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Images</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                </div>
-                <div class="mt-8">
-                    <a href="#">
-                        <img src="/img/parasite.jpg" alt="parasite" class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
-                </div>
+                @foreach ($movieDetails['images']['backdrops'] as $image)
+                    @if ($loop->index < 9)
+                        <div class="mt-8">
+                            <a href="#">
+                                <img src="{{ 'https://image.tmdb.org/t/p/w500'.$image['file_path'] }}" alt="image1" class="hover:opacity-75 transition ease-in-out duration-150">
+                            </a>
+                        </div>
+                    @endif
+                @endforeach
             </div>
         </div>
     </div> <!-- end movie-images -->
