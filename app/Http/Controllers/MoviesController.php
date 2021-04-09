@@ -32,7 +32,7 @@ class MoviesController extends Controller
             ];
         });
 
-        //dump($npMovies);
+        //dd($npMovies);
 
         return view('index', [
             'popularMovies' => $popularMovies,

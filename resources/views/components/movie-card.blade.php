@@ -10,10 +10,6 @@
             <span class="mx-2">|</span>
             <span>{{ \Carbon\Carbon::parse($popularMovie['release_date'])->format('M d, Y') }}</span>
         </div>
-        <div class="text-gray-400 text-sm">
-            @foreach ($popularMovie['genre_ids'] as $genreId)
-                {{ $genres->get($genreId) }}@if (!$loop->last), @endif
-            @endforeach
-        </div>
+        <div class="text-gray-400 text-sm">@foreach ($popularMovie['genre_ids'] as $genreId){{ $genres->get($genreId) }}@if (!$loop->last),@endif @endforeach</div>
     </div>
 </div>
