@@ -8,16 +8,14 @@ class MovieCard extends Component
 {
 
     public $popularMovie;
-    public $genres;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($popularMovie, $genres)
+    public function __construct($popularMovie)
     {
         $this->popularMovie = $popularMovie;
-        $this->genres = $genres;
     }
 
     /**

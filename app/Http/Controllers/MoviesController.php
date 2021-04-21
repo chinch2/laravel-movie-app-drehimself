@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ViewModels\MoviesViewModel;
+use App\ViewModels\MovieViewModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -85,10 +86,11 @@ class MoviesController extends Controller
 
         //dump($movieDetails);
 
+        $viewModel = new MovieViewModel(
+            $movieDetails,
+        );
 
-        return view('show', [
-            'movieDetails' => $movieDetails,
-        ]);
+        return view('show', $viewModel);
     }
 
     /**

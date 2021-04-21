@@ -29,6 +29,8 @@ class MoviesViewModel extends ViewModel
                 'vote_average' => $popularMovie['vote_average'] * 10 .'%',
                 'release_date' => Carbon::parse($popularMovie['release_date'])->format('M d, Y'),
                 'genres' => $genresFormatted,
+            ])->only([
+                'poster_path', 'id', 'genre_ids', 'title', 'vote_average', 'overview', 'release_date', 'genres',
             ]);
         });
     }
@@ -44,6 +46,8 @@ class MoviesViewModel extends ViewModel
                 'vote_average' => $npMovie['vote_average'] * 10 .'%',
                 'release_date' => Carbon::parse($npMovie['release_date'])->format('M d, Y'),
                 'genres' => $genresFormatted,
+            ])->only([
+                'poster_path', 'id', 'genre_ids', 'title', 'vote_average', 'overview', 'release_date', 'genres',
             ]);
         });
     }
