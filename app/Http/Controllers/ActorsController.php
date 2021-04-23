@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\ViewModels\MoviesViewModel;
-use App\ViewModels\MovieViewModel;
 use Illuminate\Http\Request;
+use App\ViewModels\ActorsViewModel;
 use Illuminate\Support\Facades\Http;
 
-class MoviesController extends Controller
+class ActorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,39 +15,15 @@ class MoviesController extends Controller
      */
     public function index()
     {
-        $popularMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/popular')
+        $popularActors = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/person/popular')
             ->json()['results'];
 
-        $npMovies = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/now_playing')
-            ->json()['results'];
-
-        $genres = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/genre/movie/list')
-            ->json()['genres'];
-
-        /*$genres = collect($genresArray)->mapWithKeys(function ($genre) {
-            return [
-                $genre['id'] => $genre['name']
-            ];
-        });*/
-
-        //dd($npMovies);
-
-        /*return view('index', [
-            'popularMovies' => $popularMovies,
-            'genres' => $genres,
-            'npMovies' => $npMovies,
-        ]);*/
-
-        $viewModel = new MoviesViewModel(
-            $popularMovies,
-            $npMovies,
-            $genres,
+        $viewModel = new ActorsViewModel(
+            $popularActors,
         );
 
-        return view('movies.index', $viewModel);
+        return view('actors.index', $viewModel);
     }
 
     /**
@@ -80,17 +55,7 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        $movieDetails = Http::withToken(config('services.tmdb.token'))
-            ->get('https://api.themoviedb.org/3/movie/'.$id.'?append_to_response=credits,videos,images')
-            ->json();
-
-        //dump($movieDetails);
-
-        $viewModel = new MovieViewModel(
-            $movieDetails,
-        );
-
-        return view('movies.show', $viewModel);
+        //
     }
 
     /**
