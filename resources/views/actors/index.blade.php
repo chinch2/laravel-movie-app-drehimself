@@ -7,17 +7,52 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
                 @foreach ($popularActors as $popularActor)
                     <div class="actor mt-8">
-                        <a href="#">
+                        <a href="{{ route('actors.show', $popularActor['id']) }}">
                             <img src={{ $popularActor['profile_path'] }}
                             alt="profile image" class="hover:opacity-75 transition ease-in-out duration-150">
                         </a>
                         <div class="mt-2">
-                            <a href="#" class="text-lg hover:text-gray-300">{{ $popularActor['name'] }}</a>
-                            <div class="text-sm truncate text-gray-400">Iron Man, Avengers, Avengers: Infinity War</div>
+                            <a href="{{ route('actors.show', $popularActor['id']) }}" class="text-lg hover:text-gray-300">{{ $popularActor['name'] }}</a>
+                            <div class="text-sm truncate text-gray-400">{{ $popularActor['known_for'] }}</div>
                         </div>
                     </div>
                 @endforeach
             </div>
+        </div> <!-- end popular-actors -->
+
+        <div class="page-load-status my-8">
+            <div class="flex justify-center">
+                <div class="infinite-scroll-request spinner my-8 text-4xl">&nbsp;</div>
+            </div>
+            <p class="infinite-scroll-last">End of content</p>
+            <p class="infinite-scroll-error">Error</p>
         </div>
+        {{-- <div class="flex justify-between mt-16">
+            @if ($previous)
+                <a href="/actors/page/{{ $previous }}">Previous</a>
+            @else
+                <div></div>
+            @endif
+
+            @if ($next)
+                <a href="/actors/page/{{ $next }}">Next</a>
+            @else
+                <div></div>
+            @endif
+        </div> --}}
     </div>
+@endsection
+
+@section('scripts')
+    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+    <script>
+        let elem = document.querySelector('.grid');
+        let infScroll = new InfiniteScroll( elem, {
+            // options
+            path: '/actors/page/@{{#}}',
+            append: '.actor',
+            status: '.page-load-status',
+            //history: false,
+        });
+    </script>
 @endsection
