@@ -4,20 +4,60 @@
     <div class="movie-info border-b border-gray-800">
         <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
             <div class="flex-none">
-                <img src="https://image.tmdb.org/t/p/w388/5qHNjhtjMD4YWH3UP0rm4tKwxCL.jpg" alt="profile image" class="w-76">
+                <img src="{{ $actorDetails['profile_path'] }}" alt="profile image" class="w-76">
+                <ul class="flex items-center mt-4">
+                    @if($actorSocial['facebook'])
+                        <li class="px-3">
+                            <a href="{{ $actorSocial['facebook'] }}" title="Facebook">
+                                <svg class="fill-current text-gray-400 hover:text-white w-6" viewBox="0 0 448 512"><path d="M448 56.7v398.5c0 13.7-11.1 24.7-24.7 24.7H309.1V306.5h58.2l8.7-67.6h-67v-43.2c0-19.6 5.4-32.9 33.5-32.9h35.8v-60.5c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9h-58.4v67.6h58.4V480H24.7C11.1 480 0 468.9 0 455.3V56.7C0 43.1 11.1 32 24.7 32h398.5c13.7 0 24.8 11.1 24.8 24.7z"/></svg>
+                            </a>
+                        </li>
+                    @endif
+                    @if($actorSocial['instagram'])
+                        <li class="px-3">
+                            <a href="{{ $actorSocial['instagram'] }}" title="Instagram">
+                                <svg class="fill-current text-gray-400 hover:text-white w-6" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                            </a>
+                        </li>
+                    @endif
+                    @if($actorSocial['twitter'])
+                        <li class="px-3">
+                            <a href="{{ $actorSocial['twitter'] }}" title="Twitter">
+                                <svg class="fill-current text-gray-400 hover:text-white w-6" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                            </a>
+                        </li>
+                    @endif
+                    @if($actorDetails['homepage'])
+                        <li class="px-3">
+                            <a href="{{ $actorDetails['homepage'] }}" title="Website">
+                                <svg class="fill-current text-gray-400 hover:text-white w-6" viewBox="0 0 496 512"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 01-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 01-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 00-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 00-15.55-3.1l-31.17 10.39a11.95 11.95 0 00-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 018.93 21.57 46.536 46.536 0 01-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 010-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"/></svg>
+                            </a>
+                        </li>
+                    @endif
+                </ul>
             </div>
             <div class="md:ml-24">
-                <h2 class="text-4xl font-semibold">Will Smith</h2>
+                <h2 class="text-4xl font-semibold">{{ $actorDetails['name'] }}</h2>
                 <div class="flex flex-wrap items-center text-gray-400 text-sm">
-                    <svg class="fill-current text-red-500 w-4"version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 26.9 25.65" style="enable-background:new 0 0 26.9 25.65" xml:space="preserve"><style type="text/css">.st0{clip-path:url(#SVGID_2_);} .st1{fill:#FFD401;}</style><g><g><defs><path id="SVGID_1_" d="M14.1,0.43l3.44,8.05l8.72,0.78c0.39,0.03,0.67,0.37,0.64,0.76c-0.02,0.19-0.1,0.35-0.24,0.47l0,0 l-6.6,5.76l1.95,8.54c0.09,0.38-0.15,0.75-0.53,0.84c-0.19,0.04-0.39,0-0.54-0.1l-7.5-4.48l-7.52,4.5 c-0.33,0.2-0.76,0.09-0.96-0.24c-0.1-0.16-0.12-0.35-0.08-0.52h0l1.95-8.54l-6.6-5.76c-0.29-0.25-0.32-0.7-0.07-0.99 C0.3,9.35,0.48,9.28,0.66,9.27l8.7-0.78l3.44-8.06c0.15-0.36,0.56-0.52,0.92-0.37C13.9,0.13,14.03,0.27,14.1,0.43L14.1,0.43 L14.1,0.43z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><g class="st0"><defs><rect id="SVGID_3_" x="-0.08" y="-0.1" width="27.01" height="25.85"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><g style="clip-path:url(#SVGID_4_)"><image style="overflow:visible" width="64" height="57" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAgEAlgCWAAD/7AARRHVja3kAAQAEAAAAHgAA/+4AIUFkb2JlAGTAAAAAAQMA EAMCAwYAAAJIAAACsAAAA4b/2wCEABALCwsMCxAMDBAXDw0PFxsUEBAUGx8XFxcXFx8eFxoaGhoX Hh4jJSclIx4vLzMzLy9AQEBAQEBAQEBAQEBAQEABEQ8PERMRFRISFRQRFBEUGhQWFhQaJhoaHBoa JjAjHh4eHiMwKy4nJycuKzU1MDA1NUBAP0BAQEBAQEBAQEBAQP/CABEIADwAQwMBIgACEQEDEQH/ xACiAAADAQEBAQAAAAAAAAAAAAAABAUCAQMGAQACAwEAAAAAAAAAAAAAAAAAAwQFBgIQAAIABQME AwAAAAAAAAAAAAARAQIDBAUTJBUSIzMlMhQ0EQABAQYGAQUAAAAAAAAAAAABABAgEXGhMrECEkJy AzEhUSITFBIAAgADBAgHAQAAAAAAAAAAAQIAEAMhMaEiUXGBkbHRMtIRYRJykjNzQv/aAAwDAQAC EQMRAAAA+68SfRyaBPIrKBPAoektl3NMDQREp1Cbmp+jJAbruANsptSOKwGsrkJlKXnLHRkgu0ZA 00m2/iyBqqudKto0FikOkNyQ6Ak51h66IGkrP//aAAgBAgABBQC/v7ijccreHK3hbZG6nrmUhu0I s4bkycN2hFnDcmRkljc6chpyFrJLC4P/2gAIAQMAAQUApUpJpNCmaFMnoyQlLeHbQirDtltDtIRW h2y2mjCl1ROqJVmjpn//2gAIAQEAAQUAr14UIcjIcjIcjIcjIcjIcjIUbyWtOZH4MYxjGWH6DJfB jGMYzH/oMp42MYxjMdHcmV8bGMYxmNjujL+NjGMYzGR3RmPExjGMZi/1l/8AV6PUnqT1J6k9SepL L6Guf//aAAgBAgIGPwBqdNgFAX+QbxHWPiI6x8RFNGcFXcA5RcZPqXhOj+iyfUvCdH9FkxNRFsWw +rR5Ax9tPc/bH209z9sUiKiHOtgDdsv/2gAIAQMCBj8ABIti7GLsYJAuEhtm3tMhtm/tMhlJvu8O cdDYc46Gw5w+VhlOjnL/2gAIAQEBBj8ABIJiYeisKsKsKsKsKsK0DKQYRizJMviRZkmcHxIsyTOD 4kWdczg+JFnXyOD44lnXyOD44lmT9MdMfjp91vqt9Vvqt9Vvqt9UPz6vsgfPiDP/2Q==" transform="matrix(0.48 0 0 -0.48 -1.1399 26.7469)"/></g></g></g><path class="st1" d="M14.1,0.43l3.44,8.05l8.72,0.78c0.39,0.03,0.67,0.37,0.64,0.76c-0.02,0.19-0.1,0.35-0.24,0.47l0,0l-1.18,1.03 c-3.21,1.11-7.42,1.78-12.03,1.78c-4.61,0-8.83-0.67-12.03-1.78l-1.18-1.03c-0.29-0.25-0.32-0.7-0.07-0.99 C0.3,9.35,0.48,9.28,0.66,9.27l8.7-0.78l3.44-8.06c0.15-0.36,0.56-0.52,0.92-0.37C13.9,0.13,14.03,0.27,14.1,0.43L14.1,0.43 L14.1,0.43z"/></g></svg>
-                    <span class="ml-1">Stuff</span>
-                    <span class="mx-2">|</span>
-                    <span>More Stuff</span>
-                    <span class="mx-2">|</span>
+                    <svg class="fill-current text-gray-400 hover:text-white w-4" viewBox="0 0 448 512"><path d="M448 384c-28.02 0-31.26-32-74.5-32-43.43 0-46.825 32-74.75 32-27.695 0-31.454-32-74.75-32-42.842 0-47.218 32-74.5 32-28.148 0-31.202-32-74.75-32-43.547 0-46.653 32-74.75 32v-80c0-26.5 21.5-48 48-48h16V112h64v144h64V112h64v144h64V112h64v144h16c26.5 0 48 21.5 48 48v80zm0 128H0v-96c43.356 0 46.767-32 74.75-32 27.951 0 31.253 32 74.75 32 42.843 0 47.217-32 74.5-32 28.148 0 31.201 32 74.75 32 43.357 0 46.767-32 74.75-32 27.488 0 31.252 32 74.5 32v96zM96 96c-17.75 0-32-14.25-32-32 0-31 32-23 32-64 12 0 32 29.5 32 56s-14.25 40-32 40zm128 0c-17.75 0-32-14.25-32-32 0-31 32-23 32-64 12 0 32 29.5 32 56s-14.25 40-32 40zm128 0c-17.75 0-32-14.25-32-32 0-31 32-23 32-64 12 0 32 29.5 32 56s-14.25 40-32 40z"/></svg>
+                    <span class="ml-2">{{ $actorDetails['birthday'] }} ({{ $actorDetails['age'] }} years old) in {{ $actorDetails['place_of_birth'] }}</span>
                 </div>
                 <p class="text-gray-300 mt-8">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita iusto perferendis nemo aut porro beatae facere libero atque laudantium ducimus! Eos eum optio dicta sit earum quos, iste tenetur natus accusantium at perferendis. Non ex quos quo recusandae nemo architecto.
+                    {{ $actorDetails['biography'] }}
                 </p>
+
+                <h4 class="font-semibold mt-12">Known For</h4>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+                    @foreach ($actorCredits as $actorCredit)
+                        <div class="mt-4">
+                            <a href="{{ route('movies.show', $actorCredit['id']) }}">
+                                <img src="{{ $actorCredit['poster_path'] }}" alt="poster" class="hover:opacity-75 transition ease-in-out duration-150">
+                            </a>
+                            <a href="{{ route('movies.show', $actorCredit['id']) }}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1">{{ $actorCredit['title'] }}</a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div> <!-- end movie-info -->
@@ -25,6 +65,113 @@
     <div class="credits border-b border-gray-800">
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Credits</h2>
+            <ul class="list-disc leading-loose pl-5 mt-8">
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+                    <li>
+                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                    </li>
+            </ul>
         </div>
     </div> <!-- end credits -->
 @endsection
