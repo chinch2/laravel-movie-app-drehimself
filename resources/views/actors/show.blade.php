@@ -66,111 +66,11 @@
         <div class="container mx-auto px-4 py-16">
             <h2 class="text-4xl font-semibold">Credits</h2>
             <ul class="list-disc leading-loose pl-5 mt-8">
+                @foreach ($actorCreditsList as $actorCreditsItem)
                     <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
+                        {{ $actorCreditsItem['release_year'] }} &middot; <strong>{{ $actorCreditsItem['title'] }}</strong> as {{ $actorCreditsItem['character'] }}
                     </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
-                    <li>
-                        2018 &middot; <strong>Dolittle</strong> as Tony Stark / Iron Man
-                    </li>
+                @endforeach
             </ul>
         </div>
     </div> <!-- end credits -->
