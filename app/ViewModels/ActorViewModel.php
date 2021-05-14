@@ -25,7 +25,7 @@ class ActorViewModel extends ViewModel
             'profile_path' => $this->actorDetails['profile_path']
                 ? 'https://image.tmdb.org/t/p/w300/'.$this->actorDetails['profile_path']
                 : 'https://via.placeholder.com/300x450',
-        ])->dump();
+        ]);
     }
 
     public function actorSocial() {
@@ -39,7 +39,7 @@ class ActorViewModel extends ViewModel
             'twitter' => $this->actorSocial['twitter_id']
                 ? 'https://twitter.com/'.$this->actorSocial['twitter_id']
                 : null,
-        ])->dump();
+        ]);
     }
 
     public function actorCredits() {
@@ -55,7 +55,7 @@ class ActorViewModel extends ViewModel
                         ? $movie['title']
                         : 'Untitled',
                 ]);
-            })->dump();
+            });
     }
 
     public function actorCreditsList() {
@@ -84,6 +84,6 @@ class ActorViewModel extends ViewModel
                 'title' => $title,
                 'character' => isset($movie['character']) ? $movie['character'] : '',
             ]);
-        })->sortByDesc('release_date')->dump();
+        })->sortByDesc('release_date');
     }
 }
