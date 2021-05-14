@@ -20,12 +20,11 @@
                     {{ $showDetails['overview'] }}
                 </p>
                 <div class="mt-12">
-                    <h4 class="text-white font-semibold">Featured Crew</h4>
                     <div class="flex mt-4">
-                        @foreach ($showDetails['crew'] as $crewMember)
+                        @foreach ($showDetails['created_by'] as $crewMember)
                             <div class="mr-8">
                                 <div>{{ $crewMember['name'] }}</div>
-                                <div class="text-sm text-gray-400">{{ $crewMember['job'] }}</div>
+                                <div class="text-sm text-gray-400">Creator</div>
                             </div>
                         @endforeach
                     </div>

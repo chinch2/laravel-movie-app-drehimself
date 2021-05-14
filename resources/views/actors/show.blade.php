@@ -51,10 +51,10 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
                     @foreach ($actorCredits as $actorCredit)
                         <div class="mt-4">
-                            <a href="{{ route('movies.show', $actorCredit['id']) }}">
+                            <a href="{{ $actorCredit['linkToPage'] }}">
                                 <img src="{{ $actorCredit['poster_path'] }}" alt="poster" class="hover:opacity-75 transition ease-in-out duration-150">
                             </a>
-                            <a href="{{ route('movies.show', $actorCredit['id']) }}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1">{{ $actorCredit['title'] }}</a>
+                            <a href="{{ $actorCredit['linkToPage'] }}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1">{{ $actorCredit['title'] }}</a>
                         </div>
                     @endforeach
                 </div>
