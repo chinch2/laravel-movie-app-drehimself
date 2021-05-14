@@ -131,5 +131,5 @@
             </div>
 
         </div>
-    </div> <!-- end tv-images --> --}}
+    </div> <!-- end tv-images -->
 @endsection
